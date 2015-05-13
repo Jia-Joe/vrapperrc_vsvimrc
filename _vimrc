@@ -3,9 +3,10 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+set nobackup
 set ai "设置自动缩进
 set cindent "设置使用 C/C++ 语言的自动缩进方式
-set shiftwidth=2   "设置自动缩进 2 个空格
+set shiftwidth=4   "设置自动缩进 2 个空格
 set sts=4          "即设置 softtabstop 为 4. 输入 tab 后就跳了 4 格
 set tabstop=4      "实际的 tab 即为 4 个空格, 而不是缺省的 8 个
 set expandtab      "在输入 tab 后, vim 用恰当的空格来填充这个 tab
@@ -59,3 +60,26 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
+
+
+"GVim
+let g:indentLine_color_gui = '#A4E57E'
+
+" none X terminal
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 4)
+let g:indentLine_char = '|'
+" let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#A4E57E'
+
+imap { {}<ESC>i<CR><ESC>O
+imap ( ()<ESC>i
+ 
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
