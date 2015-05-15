@@ -62,19 +62,75 @@ endfunction
 
 
 
-
 "let g:indentLine_color_gui = '#A4E57E'
 "let g:indentLine_color_gui = '#336699' "Blue
 let g:indentLine_color_gui = '#586e75' "Base01
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 4)
-let g:indentLine_char = '|'
+"let g:indentLine_char = '|'
 
-
+"切换显示菜单栏Alt+m
+set guioptions-=m
+set guioptions-=T
+map <silent> <A-m> :if &guioptions =~# 'T' <Bar>
+        \set guioptions-=T <Bar>
+        \set guioptions-=m <bar>
+    \else <Bar>
+        \set guioptions+=T <Bar>
+        \set guioptions+=m <Bar>
+    \endif<CR>
 
 imap { {}<ESC>i<CR><ESC>O
 imap ( ()<ESC>i
+imap jj <ESC> 
+" 在插入模式下使用光标移动指令 'A'代表Alt键
+inoremap <A-h> <Left>
+inoremap <A-j> <Down>
+inoremap <A-k> <Up>
+inoremap <A-l> <Right>
+" 在插入模式下使用光标移动一个单词
+inoremap <C-h> <C-Left>
+inoremap <C-l> <C-Right>
  
+" 在插入模式下<C-k>用来插入特殊字符，详细内容可参考:help digraph-table
+" 在插入模式下<C-j>用来输入一个回车键
+ 
+" 使用 Alt 键移动到行首、行尾、上一行行首、下一行行尾
+inoremap <A-H> <Esc>^i
+inoremap <A-L> <End>
+inoremap <A-K> <Esc>k$a
+inoremap <A-J> <Esc>j$a
+ 
+" 删除光标前面、后面的一个字符
+inoremap <A-f> <C-o>x
+inoremap <A-b> <C-o>h<C-o>x
+ 
+" 在光标下方，上方插入新行
+inoremap <A-o> <Esc>o
+inoremap <A-O> <Esc>O
+ 
+" 删除当前行
+inoremap <A-d> <C-o>dd
+ 
+" 删除当前行并重写
+inoremap <A-s> <Esc>cc
+"inoremap <A-x> <Esc>Xli 
+" 删除目标所在的单词 
+inoremap <C-a> <C-[>diwi
+ 
+" 删除光标后面的单词 (<C-w>在插入模式下删除光标前面的单词 <C-u>删除到行首)
+" NOTE: 要把光标放在所要删除单词的前面
+inoremap <C-b> <C-o>diw
+ 
+" 取消高亮
+map <A-/> :nohlsearch<CR>
+ 
+" 插入模式下滚屏
+:inoremap <C-e> <C-X><C-E>
+:inoremap <C-y> <C-X><C-Y>
+ 
+" 插入模式下的撤销操作
+inoremap <A-u> <C-o>u
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -83,3 +139,5 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+
+setl comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f://
