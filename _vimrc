@@ -3,6 +3,11 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+" Sets how many lines of history VIM has to remember
+set history=50
+
+" Always show the status line
+
 set nobackup
 set ai "设置自动缩进
 set cindent "设置使用 C/C++ 语言的自动缩进方式
@@ -82,7 +87,7 @@ map <silent> <A-m> :if &guioptions =~# 'T' <Bar>
 
 imap { {}<ESC>i<CR><ESC>O
 imap ( ()<ESC>i
-imap jj <ESC> 
+imap jj <Left><ESC> 
 " 在插入模式下使用光标移动指令 'A'代表Alt键
 inoremap <A-h> <Left>
 inoremap <A-j> <Down>
@@ -102,19 +107,30 @@ inoremap <A-K> <Esc>k$a
 inoremap <A-J> <Esc>j$a
  
 " 删除光标前面、后面的一个字符
-inoremap <A-f> <C-o>x
-inoremap <A-b> <C-o>h<C-o>x
- 
+"inoremap <A-f> <C-o>x
+inoremap <A-f> <BACKSPACE>
+inoremap <A-b> <Right><Esc>s
+inoremap <A-y> <C-o>Y
+
+" 插入到大/小括号外另起一行
+inoremap <A-g> <Esc>jo
+inoremap <A-n> <Esc>A;<CR>
+inoremap <A-N> <Esc>A<SPACE>{}<ESC>i<CR><ESC>O
+inoremap <BACKSPACE> <Esc>kA<BACKSPACE>
+
 " 在光标下方，上方插入新行
 inoremap <A-o> <Esc>o
 inoremap <A-O> <Esc>O
+inoremap <A-p> <C-o>p
+inoremap <A-P> <C-o>P
+inoremap <A-v> <Esc>v
  
 " 删除当前行
 inoremap <A-d> <C-o>dd
  
 " 删除当前行并重写
 inoremap <A-s> <Esc>cc
-"inoremap <A-x> <Esc>Xli 
+
 " 删除目标所在的单词 
 inoremap <C-a> <C-[>diwi
  
@@ -131,6 +147,8 @@ map <A-/> :nohlsearch<CR>
  
 " 插入模式下的撤销操作
 inoremap <A-u> <C-o>u
+inoremap <A-r> <C-o><C-r>
+vertical all
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -141,3 +159,12 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
 setl comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f://
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
