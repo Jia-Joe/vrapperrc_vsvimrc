@@ -87,7 +87,9 @@ map <silent> <A-m> :if &guioptions =~# 'T' <Bar>
 
 imap { {}<ESC>i<CR><ESC>O
 imap ( ()<ESC>i
+imap [ []<ESC>i
 imap jj <Left><ESC> 
+inoremap " ""<ESC>i
 " 在插入模式下使用光标移动指令 'A'代表Alt键
 inoremap <A-h> <Left>
 inoremap <A-j> <Down>
@@ -115,7 +117,7 @@ inoremap <A-y> <C-o>Y
 " 插入到大/小括号外另起一行
 inoremap <A-g> <Esc>jo
 inoremap <A-n> <Esc>A;<CR>
-inoremap <A-N> <Esc>A<SPACE>{}<ESC>i<CR><ESC>O
+inoremap <A-m> <Esc>A<SPACE>{}<ESC>i<CR><ESC>O
 inoremap <BACKSPACE> <Esc>kA<BACKSPACE>
 
 " 在光标下方，上方插入新行
@@ -123,7 +125,7 @@ inoremap <A-o> <Esc>o
 inoremap <A-O> <Esc>O
 inoremap <A-p> <C-o>p
 inoremap <A-P> <C-o>P
-inoremap <A-v> <Esc>v
+inoremap <A-v> <Esc>V
  
 " 删除当前行
 inoremap <A-d> <C-o>dd
