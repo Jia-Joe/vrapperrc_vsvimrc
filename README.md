@@ -14,6 +14,7 @@ All the shortcut key remapping in file _vimrc can be transplanted into Eclipse b
 
 
 The path of Eclipse config file:
+
 [YourWorkspace]/.metadata/.plugins/org.eclipse.core.runtime/.settings/
 
 
