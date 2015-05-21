@@ -91,27 +91,27 @@ imap [ []<ESC>i
 imap jj <Left><ESC> 
 inoremap " ""<ESC>i
 " 在插入模式下使用光标移动指令 'A'代表Alt键
-inoremap <A-h> <Left>
+inoremap <C-j> <Left>
 inoremap <A-j> <Down>
 inoremap <A-k> <Up>
-inoremap <A-l> <Right>
+inoremap <C-k> <Right>
 " 在插入模式下使用光标移动一个单词
-inoremap <C-h> <C-Left>
-inoremap <C-l> <C-Right>
+inoremap <A-h> <C-Left>
+inoremap <A-l> <C-Right>
  
 " 在插入模式下<C-k>用来插入特殊字符，详细内容可参考:help digraph-table
 " 在插入模式下<C-j>用来输入一个回车键
  
 " 使用 Alt 键移动到行首、行尾、上一行行首、下一行行尾
-inoremap <A-H> <Esc>^i
-inoremap <A-L> <End>
+inoremap <C-h> <Esc>^i
+inoremap <C-l> <End>
 inoremap <A-K> <Esc>k$a
 inoremap <A-J> <Esc>j$a
  
 " 删除光标前面、后面的一个字符
 "inoremap <A-f> <C-o>x
-inoremap <A-f> <BACKSPACE>
-inoremap <A-b> <Right><Esc>s
+inoremap <A-d> <BACKSPACE>
+inoremap <A-c> <Right><Esc>s
 inoremap <A-y> <C-o>Y
 
 " 插入到大/小括号外另起一行
@@ -128,24 +128,21 @@ inoremap <A-P> <C-o>P
 inoremap <A-v> <Esc>V
  
 " 删除当前行
-inoremap <A-d> <C-o>dd
+inoremap <C-d> <C-o>dd
  
-" 删除当前行并重写
+" 删除当前行并重写<-------------------
 inoremap <A-s> <Esc>cc
 
-" 删除目标所在的单词 
-inoremap <C-a> <C-[>diwi
+" 删除目标所在的单词<-----------------
+inoremap <A-,> <C-[>diwi 
+inoremap <A-.> <C-o>diw
  
-" 删除光标后面的单词 (<C-w>在插入模式下删除光标前面的单词 <C-u>删除到行首)
-" NOTE: 要把光标放在所要删除单词的前面
-inoremap <C-b> <C-o>diw
- 
-" 取消高亮
+" 取消高亮<---------------------------
 map <A-/> :nohlsearch<CR>
  
 " 插入模式下滚屏
-:inoremap <C-e> <C-X><C-E>
-:inoremap <C-y> <C-X><C-Y>
+:inoremap <A-w> <C-X><C-E>
+:inoremap <A-e> <C-X><C-Y>
  
 " 插入模式下的撤销操作
 inoremap <A-u> <C-o>u
