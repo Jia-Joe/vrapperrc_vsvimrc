@@ -116,7 +116,7 @@ inoremap <A-y> <C-o>Y
 
 " 插入到大/小括号外另起一行
 inoremap <A-g> <Esc>jo
-inoremap <A-n> <Esc>A;<CR>
+inoremap <A-i> <Esc>A;<CR>
 inoremap <A-m> <Esc>A<SPACE>{}<ESC>i<CR><ESC>O
 inoremap <BACKSPACE> <Esc>kA<BACKSPACE>
 

@@ -10,10 +10,10 @@
 
 :nnoremap <C-G> :vim<CR>
 
-:ino ( ()<ESC>i
+":ino ( ()<ESC>i
 :ino [ []<ESC>i
 :ino jj <ESC>
-:ino " ""<ESC>i
+":ino " "
 
 
 :ino <C-j> <LEFT>
@@ -39,17 +39,32 @@
 
 " 插入到大/小括号外另起一行
 :ino <A-g> <ESC>jo
-:ino <A-ENTER> <Esc>A;<Esc>o
+:ino <A-i> <Esc>A;<Esc>o
 :ino <A-m> <Esc>A<SPACE>{}<ESC>i<ENTER><RIGHT>
 :ino <BACKSPACE> <Esc>kA<BACKSPACE>
 
-" 在光标上方插入新行
+" 在光标下方，上方插入新行
+:imap <A-o> <Esc>o
 :ino <A-O> <Esc>O
 :ino <A-p> <C-o>p
 :ino <A-P> <C-o>P
 :ino <A-v> <Esc>V
  
+" 删除当前行
+":ino <A-c> <C-o>dd
+ 
+" 删除当前行并重写
+:ino <A-s> <Esc>cc
 
+" 删除目标所在的单词 
+:ino <C-a> <C-[>diwi
+ 
+" 删除光标后面的单词 (<C-w>在插入模式下删除光标前面的单词 <C-u>删除到行首)
+" NOTE: 要把光标放在所要删除单词的前面
+:ino <C-b> <C-o>diw
+ 
+" 取消高亮
+nnoremap <A-/> :nohlsearch<CR>
  
 " 插入模式下滚屏
 :ino <C-e> <C-X><C-E>
