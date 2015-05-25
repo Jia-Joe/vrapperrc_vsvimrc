@@ -141,7 +141,7 @@ inoremap <A-.> <C-o>diw
 map <A-/> :nohlsearch<CR>
  
 " 插入模式下滚屏
-:inoremap <A-w> <C-X><C-E>
+:inoremap <A-q> <C-X><C-E>
 :inoremap <A-e> <C-X><C-Y>
  
 " 插入模式下的撤销操作
@@ -167,3 +167,4 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+
