@@ -131,7 +131,7 @@ inoremap <A-v> <Esc>V
 inoremap <C-d> <C-o>dd
  
 " 删除当前行并重写<-------------------
-inoremap <A-s> <Esc>cc
+inoremap <A-s> <Esc>S
 
 " 删除目标所在的单词<-----------------
 inoremap <A-,> <C-[>diwi 
@@ -141,8 +141,8 @@ inoremap <A-.> <C-o>diw
 map <A-/> :nohlsearch<CR>
  
 " 插入模式下滚屏
-:inoremap <A-q> <C-X><C-E>
-:inoremap <A-e> <C-X><C-Y>
+:inoremap <A-e> <C-X><C-E>
+:inoremap <A-q> <C-X><C-Y>
  
 " 插入模式下的撤销操作
 inoremap <A-u> <C-o>u
