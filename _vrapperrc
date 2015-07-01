@@ -1,0 +1,75 @@
+:set so=5
+:set ic
+:set scs
+:set hls
+:set softtabstop=4
+:set tabstop=4
+:set shiftwidth=4
+:set gvimpath=D:\Program Files\Vim\vim73\gvim.exe
+:set gvimargs={file} "+norm {line}G0{col}lhzz"
+
+:nnoremap <C-G> :vim<CR>
+
+":ino ( ()<ESC>i
+:ino [ []<ESC>i
+:ino jj <ESC>
+":ino " "
+
+
+:ino <C-j> <LEFT>
+:ino <C-k> <RIGHT>
+
+
+" 在插入模式下使用光标移动一个单词
+:ino <C-h> <ESC>I
+:ino <C-l> <ESC>A
+ 
+" 在插入模式下<C-k>用来插入特殊字符，详细内容可参考:help digraph-table
+" 在插入模式下<C-j>用来输入一个回车键
+ 
+" 使用 Alt 键移动到行首、行尾、上一行行首、下一行行尾
+:ino <A-j> <DOWN>
+:ino <A-k> <UP>
+ 
+" 删除光标前面、后面的一个字符
+":ino <A-f> <C-o>x
+:ino <A-d> <BACKSPACE>
+:ino <A-c> <Right><Esc>s
+:ino <A-y> <C-o>Y
+
+" 插入到大/小括号外另起一行
+:ino <A-g> <ESC>jo
+:ino <A-i> <Esc>A;<Esc>o
+:ino <A-m> <Esc>A<SPACE>{}<ESC>i<ENTER><RIGHT>
+:ino <BACKSPACE> <Esc>kA<BACKSPACE>
+
+" 在光标下方，上方插入新行
+:imap <A-o> <Esc>o
+:ino <A-O> <Esc>O
+:ino <A-p> <C-o>p
+:ino <A-P> <C-o>P
+:ino <A-v> <Esc>V
+ 
+" 删除当前行
+":ino <A-c> <C-o>dd
+ 
+" 删除当前行并重写
+:ino <A-s> <Esc>cc
+
+" 删除目标所在的单词 
+:ino <C-a> <C-[>diwi
+ 
+" 删除光标后面的单词 (<C-w>在插入模式下删除光标前面的单词 <C-u>删除到行首)
+" NOTE: 要把光标放在所要删除单词的前面
+:ino <C-b> <C-o>diw
+ 
+" 取消高亮
+nnoremap <A-/> :nohlsearch<CR>
+ 
+" 插入模式下滚屏
+:ino <C-e> <C-X><C-E>
+:ino <C-w> <C-X><C-Y>
+ 
+" 插入模式下的撤销操作
+:ino <A-u> <C-o>u
+:ino <A-r> <C-o><C-r>
