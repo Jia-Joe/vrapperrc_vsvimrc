@@ -12,10 +12,10 @@ set tabstop=4      "实际的 tab 即为 4 个空格, 而不是缺省的 8 个
 set expandtab      "在输入 tab 后, vim 用恰当的空格来填充这个 tab
 
 "光标离上下边界7行时开始滚屏
-set so=7
+"set so=7
 set backspace=2 
 set mouse=a
-
+插入节点
 
 "imap { {}<ESC>i<CR><ESC>O
 imap ( ()<ESC>i
@@ -37,14 +37,14 @@ inoremap <C-l> <C-Right>
 " 在插入模式下<C-j>用来输入一个回车键
  
 " 使用 Alt 键移动到行首、行尾、上一行行首、下一行行尾
-inoremap <C-h> <Esc>^i
-inoremap <C-l> <End>
+inoremap <A-H> <Esc>^i
+inoremap <A-L> <End>
 inoremap <A-K> <Esc>k$a
 inoremap <A-J> <Esc>j$a
  
 " 删除光标前面、后面的一个字符
 "inoremap <A-f> <C-o>x
-inoremap <A-d> <Esc>xa
+inoremap <A-d> <Esc>s
 inoremap <A-c> <Right><Esc>s
 inoremap <A-y> <C-o>Y
 
