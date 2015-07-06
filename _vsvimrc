@@ -14,7 +14,7 @@ set expandtab      "在输入 tab 后, vim 用恰当的空格来填充这个 tab
 "光标离上下边界7行时开始滚屏
 "set so=7
 set backspace=2 
-set mouse=a
+set mouse=i
 插入节点
 
 "imap { {}<ESC>i<CR><ESC>O
@@ -54,6 +54,7 @@ inoremap <A-i> <Esc>A;<CR>
 "inoremap <A-m> <Esc>A<SPACE>{}<ESC>i<CR><ESC>O
 inoremap <A-m> <Esc>o{}<ESC>O
 "inoremap <BACKSPACE> <Esc>kA<BACKSPACE>
+inoremap <A-n> <Esc>o{<ENTER>
 
 " 在光标下方，上方插入新行
 inoremap <A-o> <Esc>o
