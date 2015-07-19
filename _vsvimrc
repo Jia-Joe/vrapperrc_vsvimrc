@@ -40,7 +40,7 @@ inoremap <C-l> <C-Right>
 inoremap <A-H> <Esc>^i
 inoremap <A-L> <End>
 inoremap <A-K> <Esc>k$a
-inoremap <A-J> <Esc>j$a
+inoremap <A-J> <Esc>$a
  
 " 删除光标前面、后面的一个字符
 "inoremap <A-f> <C-o>x
